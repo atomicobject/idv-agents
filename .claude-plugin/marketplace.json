@@ -1,0 +1,15 @@
+{
+  "name": "idv-agents",
+  "owner": {
+    "name": "Atomic Object",
+    "email": "john.fisher@atomicobject.com"
+  },
+  "description": "Fundraising AI skills for Invest Detroit Ventures portfolio founders. Built by Atomic Object based on the IDV Fundraising + AI Playbook.",
+  "plugins": [
+    {
+      "name": "idv-agents",
+      "source": "./",
+      "description": "Four open-access fundraising skills: pitch deck review, KPI recommendations, diligence gaps, and meeting prep."
+    }
+  ]
+}
