@@ -17,12 +17,9 @@ Four skills, each available as both a slash command and an auto-trigger:
 
 ## Install
 
-See [INSTALL.md](./INSTALL.md) for the full walkthrough. Quick version:
+See [INSTALL.md](./INSTALL.md) for the full walkthrough. Quick version: in the Claude desktop app's **Cowork** tab → **Customize** → **Personal plugins** → **+** → **Create plugin** → **Add marketplace**, enter `atomicobject/idv-agents`, click **Sync**, then install **Idv agents** from the Directory that pops up.
 
-```
-/plugin marketplace add atomicobject/idv-agents
-/plugin install idv-agents@idv-agents
-```
+(Claude Code CLI users: `/plugin marketplace add atomicobject/idv-agents` then `/plugin install idv-agents@idv-agents`. See INSTALL.md.)
 
 ## Prerequisites
 
