@@ -41,6 +41,17 @@ You'll also want a pitch deck, KPI dashboard, data room snapshot, or target inve
 7. Click the **+** next to **Idv agents** to install. You should see a confirmation that the plugin is installed.
    ![Idv agents installed confirmation](docs/install-screenshots/07-install-confirmation.jpg)
 
+### If the marketplace gives you trouble: install from a downloaded zip
+
+The marketplace flow above is the fastest path, but we've seen it fail intermittently for some founders. If `Sync` errors, hangs, or the plugin won't install from the Directory, fall back to a manual zip install:
+
+1. Download `idv-agents-1.1.0.zip` from the [latest release page](https://github.com/atomicobject/idv-agents/releases/latest).
+2. Unzip it. You'll get a folder named `idv-agents/`.
+3. In Cowork → **Customize** → **Personal plugins** → **+** → **Create plugin** → **Add marketplace**, and instead of typing `atomicobject/idv-agents`, paste the **full local path to the unzipped `idv-agents/` folder** (on Mac: drag the folder into Terminal to copy its path), then click **Sync**.
+4. Continue from step 6 of the Cowork UI install above (the Directory modal opens; select **Plugins → Personal → idv-agents → Idv agents** and click **+**).
+
+Your Cowork version may also offer an **upload a custom plugin file** option in the same Personal plugins menu — if so, you can use that instead of step 3 to upload the zip directly. See Anthropic's [Use plugins in Claude Cowork](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork) support article for the upload-file flow.
+
 ### Verify it worked
 
 In any Cowork chat, type `/` and start typing `pitch` — you should see `/pitch-deck-review` in the autocomplete. The same goes for `/kpi-recommendations`, `/diligence-gaps`, and `/meeting-prep`.
@@ -64,6 +75,7 @@ Verify with `/plugin list` — you should see `idv-agents` in the active list. S
 - Double-check the spelling — it's `atomicobject/idv-agents` (no typo).
 - Confirm you have network access; the Sync step pulls from GitHub.
 - Make sure the Claude desktop app is updated to a recent version.
+- If retries don't work, fall back to the [manual zip install](#if-the-marketplace-gives-you-trouble-install-from-a-downloaded-zip) above.
 
 **Plugin installed but `/pitch-deck-review` etc. don't appear in `/` autocomplete:**
 - Open a fresh Cowork chat — some plugin loads need a new session to register commands.
