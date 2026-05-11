@@ -4,6 +4,13 @@ All notable changes to `idv-agents` are documented here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] — 2026-05-11
+
+### Changed
+
+- **`diligence-gaps`** — Stage-calibration overhaul based on user-test feedback. Stage is now a required input (the skill will not scan without it). Added an explicit stage-by-item severity table for the most commonly missing data-room items, so the agent no longer over-flags normal-for-stage gaps (e.g., a missing P&L at Pre-Seed) as `[BLOCKER]`. Pre-revenue and Pre-Seed founders now see the right severities by default; corporate-hygiene items (Formation Documents, Cap Table when equity issued, Outstanding SAFE/CN) remain `[BLOCKER]` at every stage.
+- **Caveat footer attribution** — Bumped from `v1.1` to `v1.2` across all four skills' generated reports.
+
 ## [1.1.0] — 2026-05-03
 
 ### Changed
@@ -38,5 +45,6 @@ All four skills cite the following IDV-curated, founder-facing materials verbati
 - Public GitHub repo: `https://github.com/atomicobject/idv-agents`
 - Offline install zip: `dist/idv-agents-1.0.0.zip` (also attached to the GitHub release)
 
+[1.2.0]: https://github.com/atomicobject/idv-agents/releases/tag/v1.2.0
 [1.1.0]: https://github.com/atomicobject/idv-agents/releases/tag/v1.1.0
 [1.0.0]: https://github.com/atomicobject/idv-agents/releases/tag/v1.0.0

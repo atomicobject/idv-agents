@@ -2,7 +2,7 @@
 
 Fundraising AI skills for Invest Detroit Ventures portfolio founders, built by Atomic Object. Drop your pitch deck in Claude Cowork and get IDV-grade feedback in minutes.
 
-> **Status**: v1.1.0 — ready for the IDV Portfolio Summit, May 13, 2026.
+> **Status**: v1.2.0 — ready for the IDV Portfolio Summit, May 13, 2026.
 
 ## What's in here
 

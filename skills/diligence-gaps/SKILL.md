@@ -19,16 +19,19 @@ Accept any of:
 
 If what the user provided is ambiguous (e.g., a one-line description, a partial list), **ask one clarifying question before proceeding**. Do not invent files.
 
-## Step 2 — Optionally collect context
+## Step 2 — Collect stage context (required) and optional details
 
-Ask, in one message, briefly:
+**Stage is required.** Severity tagging is meaningless without it — a missing P&L is `[TYPICAL FOR STAGE]` at Pre-Seed but `[BLOCKER]` at Series A. **Do not proceed to Step 3 without a stated stage.** If the founder has not stated their stage, ask before scanning.
 
-- **Stage** — Pre-Seed / Seed / Series A or later. Affects severity tagging (e.g., a missing Term Sheet at Pre-Seed is `[TYPICAL FOR STAGE]`; missing during an active raise is `[BLOCKER]`).
+- **Stage** — Pre-Seed / Seed / Series A or later. **Required.**
+
+Then ask, in the same message, for the optional context:
+
 - **Company type** — B2B SaaS / Marketplace / Consumer-PLG / Biotech & Deep Tech / Fintech / Hardware & Robotics. Biotech / Deep Tech / Hardware triggers the IDV checklist's "Technical documentation (if applicable, essential for deep tech and life sciences)" item as required rather than optional.
 - **Are you actively raising?** — affects whether "if applicable" items become required.
 - **File contents (optional)** — if the founder pastes the contents of any documents (deck, financial model summary, cap table data), you can run the cross-document consistency check in Step 5. Without contents, skip that step.
 
-If the founder wants to skip context, proceed with what you have. State your assumptions in the output.
+If the founder skips company type or raise status, proceed with conservative defaults (assume not actively raising; assume non-deep-tech). State your assumptions in the output. Never skip stage.
 
 ## Step 3 — Scan against IDV's checklist
 
@@ -53,11 +56,43 @@ For each item, decide:
 
 For every missing item, assign one of:
 
-- **`[BLOCKER]`** — Would cause an investor to pause or pass per playbook §2.6 (p.10): *"what would cause an investor to pause or pass?"* Examples: no Pitch Deck during an active raise; no Cap Table at Seed+; no Formation Documents at any stage; missing IP assignments for a deep-tech company.
-- **`[TYPICAL FOR STAGE]`** — Expected gap at the founder's current stage but should be closed before the next milestone. Example: missing Term Sheet at Pre-Seed (no investor has issued one yet).
-- **`[NICE TO HAVE]`** — Strengthens the data room but won't cause a pause. Example: 2-3 References at Pre-Seed; sample contract templates when the founder has zero contracts yet.
+- **`[BLOCKER]`** — Would cause an investor to pause or pass per playbook §2.6 (p.10): *"what would cause an investor to pause or pass?"*
+- **`[TYPICAL FOR STAGE]`** — Expected gap at the founder's current stage but should be closed before the next milestone.
+- **`[NICE TO HAVE]`** — Strengthens the data room but won't cause a pause.
 
-Apply the playbook §1.2 (p.4) bar: *"Deck, model, data room 80%+ complete"* — that's the readiness target. If the founder is below 80% and actively raising, most missing items lean `[BLOCKER]`.
+**Default to lower severity at early stage.** A Pre-Seed founder will not have formal financial statements, audited books, or signed term sheets — that is normal. Do not flag normal-for-stage gaps as `[BLOCKER]`. Conversely, anything that signals a corporate-hygiene problem (missing Formation Documents, missing Cap Table, unsigned IP assignments) is a `[BLOCKER]` at every stage including Pre-Seed.
+
+### Stage-calibration reference table
+
+Apply these severities to the most commonly missing items. **If the item is not in this table, use judgment anchored on these examples.**
+
+| Item | Pre-Seed | Seed | Series A |
+|---|---|---|---|
+| Pitch Deck | `[BLOCKER]` if raising; else `[NICE TO HAVE]` | `[BLOCKER]` | `[BLOCKER]` |
+| 3-5 Financial/Growth Model | `[TYPICAL FOR STAGE]` | `[BLOCKER]` if raising | `[BLOCKER]` |
+| Current Year Monthly Budget / Cash Flow Burn | `[TYPICAL FOR STAGE]` | `[BLOCKER]` if raising | `[BLOCKER]` |
+| P&L (ideally reconciled) | `[TYPICAL FOR STAGE]` — pre-revenue founders won't have one | `[TYPICAL FOR STAGE]` if pre-revenue, `[BLOCKER]` if generating revenue | `[BLOCKER]` |
+| Most Recent Balance Sheet | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` | `[BLOCKER]` |
+| Most Recent Income Statement | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` | `[BLOCKER]` |
+| Term Sheet (if applicable) | `[TYPICAL FOR STAGE]` — none issued yet | `[TYPICAL FOR STAGE]` until raise closes | `[TYPICAL FOR STAGE]` until raise closes |
+| Detailed Use of Funds | `[BLOCKER]` if raising; else `[TYPICAL FOR STAGE]` | `[BLOCKER]` if raising | `[BLOCKER]` |
+| Current Cap Table and Vesting Schedule | `[BLOCKER]` if any equity has been issued; else `[TYPICAL FOR STAGE]` | `[BLOCKER]` | `[BLOCKER]` |
+| Current/Outstanding SAFE/CN | `[BLOCKER]` if any SAFE/CN exists; N/A if none | `[BLOCKER]` if any SAFE/CN exists; N/A if none | `[BLOCKER]` |
+| Formation Documents (Articles of Inc., ByLaws, Cert. of Inc.) | `[BLOCKER]` | `[BLOCKER]` | `[BLOCKER]` |
+| IP/Patents/Trademarks | `[BLOCKER]` for deep tech / biotech / hardware; `[TYPICAL FOR STAGE]` otherwise | `[BLOCKER]` for deep tech / biotech / hardware; `[NICE TO HAVE]` otherwise | `[BLOCKER]` for deep tech / biotech / hardware; `[NICE TO HAVE]` otherwise |
+| Employee Agreement / NDA / Non-compete | `[TYPICAL FOR STAGE]` if no employees yet | `[BLOCKER]` once headcount > founders | `[BLOCKER]` |
+| Current Executed Contracts (or sample template) | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` if pre-revenue; `[BLOCKER]` if revenue-generating | `[BLOCKER]` |
+| Team bios | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` | `[BLOCKER]` |
+| 2-3 References | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` | `[BLOCKER]` |
+| Sales / prospect pipeline (if applicable) | `[NICE TO HAVE]` | `[TYPICAL FOR STAGE]` if B2B and revenue-generating | `[BLOCKER]` if B2B |
+| Technical documentation | `[BLOCKER]` for deep tech / biotech / hardware; `[NICE TO HAVE]` otherwise | `[BLOCKER]` for deep tech / biotech / hardware; `[NICE TO HAVE]` otherwise | `[BLOCKER]` for deep tech / biotech / hardware; `[NICE TO HAVE]` otherwise |
+
+**Override rules:**
+- Active raise + missing item where the table says "if raising" → `[BLOCKER]`.
+- Deep tech / biotech / hardware + missing IP or Technical documentation → `[BLOCKER]` regardless of stage.
+- Founder explicitly said "we have it but didn't share" → out of scope (see Step 3 guardrail), not a gap.
+
+Apply the playbook §1.2 (p.4) bar: *"Deck, model, data room 80%+ complete"* — that's the readiness target for outreach. If the founder is below 80% and actively raising, items that are normally `[TYPICAL FOR STAGE]` for them shift toward `[BLOCKER]`.
 
 For the playbook §2.6 (p.10) **common-gaps list**, quote verbatim when applicable:
 > *"messy cap table, unsigned IP assignments, missing board minutes, unclear unit economics, no customer references prepared."*
@@ -178,7 +213,7 @@ In typical diligence sequence — close blockers first.
 
 ---
 
-*Generated by idv-agents v1.1, based on the IDV Due Diligence Checklist. Not a substitute for actual IDV diligence.*
+*Generated by idv-agents v1.2, based on the IDV Due Diligence Checklist. Not a substitute for actual IDV diligence.*
 ```
 
 ## Guardrails
@@ -193,4 +228,4 @@ In typical diligence sequence — close blockers first.
 - **Don't critique items the founder isn't required to have at their stage.** A Pre-Seed founder doesn't need a Term Sheet — that's `[TYPICAL FOR STAGE]`, not `[BLOCKER]`. Stage-calibrate severity.
 - **Don't replace the founder's authentic voice.** Per playbook §7.4 (p.20): AI should NOT *"Replace the founder's authentic voice with AI-generated language."* You're identifying gaps, not rewriting documents.
 - **Don't pull from §4.2 (Investor Targeting Agent — closed) or §5.3 (Multi-Agent System — closed).** Those are proprietary IDV capabilities outside this skill's scope.
-- **Always include the caveat footer verbatim**: *"Generated by idv-agents v1.1, based on the IDV Due Diligence Checklist. Not a substitute for actual IDV diligence."*
+- **Always include the caveat footer verbatim**: *"Generated by idv-agents v1.2, based on the IDV Due Diligence Checklist. Not a substitute for actual IDV diligence."*

@@ -9,8 +9,10 @@ The user should provide one of:
 - **`ls`-style dump** — terminal output from `ls`, `tree`, or similar
 - **Manual inventory** — natural-language description ("I have a deck, a financial model, and a cap table")
 
-Optionally (improves the output but not required):
-- **Stage** — Pre-Seed / Seed / Series A or later (calibrates severity)
+**Required** (the skill will ask if missing):
+- **Stage** — Pre-Seed / Seed / Series A or later. Severity tagging depends on stage; the skill will not scan without it.
+
+Optional (improves the output but not required):
 - **Company type** — B2B SaaS / Marketplace / Consumer-PLG / Biotech & Deep Tech / Fintech / Hardware & Robotics (Biotech / Deep Tech / Hardware triggers the "Technical documentation" item as required)
 - **Are you actively raising?** — affects whether "if applicable" items become required
 - **File contents** — paste deck text, financial model summary, or cap table data to enable the cross-document consistency check (numerical facts only in v1.0)
