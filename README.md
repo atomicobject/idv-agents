@@ -2,7 +2,7 @@
 
 Fundraising AI skills for Invest Detroit Ventures portfolio founders, built by Atomic Object. Drop your pitch deck in Claude Cowork and get IDV-grade feedback in minutes.
 
-> **Status**: v1.2.0 — ready for the IDV Portfolio Summit, May 13, 2026.
+> **Status**: v1.2.1 — ready for the IDV Portfolio Summit, May 13, 2026.
 
 ## What's in here
 
@@ -45,7 +45,7 @@ You'll also want a pitch deck, KPI dashboard, data room snapshot, or target inve
 
 The marketplace flow above is the fastest path, but we've seen it fail intermittently for some founders. If `Sync` errors, hangs, or the plugin won't install from the Directory, fall back to a manual zip install:
 
-1. Download `idv-agents-1.1.0.zip` from the [latest release page](https://github.com/atomicobject/idv-agents/releases/latest).
+1. Download `idv-agents-1.2.1.zip` from the [latest release page](https://github.com/atomicobject/idv-agents/releases/latest).
 2. Unzip it. You'll get a folder named `idv-agents/`.
 3. In Cowork → **Customize** → **Personal plugins** → **+** → **Create plugin** → **Add marketplace**, and instead of typing `atomicobject/idv-agents`, paste the **full local path to the unzipped `idv-agents/` folder** (on Mac: drag the folder into Terminal to copy its path), then click **Sync**.
 4. Continue from step 6 of the Cowork UI install above (the Directory modal opens; select **Plugins → Personal → idv-agents → Idv agents** and click **+**).
